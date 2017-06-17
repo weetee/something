@@ -1,0 +1,10 @@
+bin
+pkg
+*.exe
+*.dll
+*.test
+*.so
+*.out
+*.DS_Store
+*.sublime-workspace
+*.txt
