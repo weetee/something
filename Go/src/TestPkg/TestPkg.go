@@ -9,6 +9,6 @@ func TestPkg(str string) {
 		fmt.Println("the string value is null")
 	}
 
-	comp := 5 + 5i
+	comp := 5 + 5i	//复数
 	fmt.Println("complex value is : ", comp)
 }
