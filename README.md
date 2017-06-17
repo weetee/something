@@ -1,2 +1,2 @@
 # something
-	study lua python practice
+	study C++ lua python go practice
