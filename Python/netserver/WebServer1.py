@@ -15,7 +15,7 @@ while True:
 	print(request)
 
 	http_response = b"""\
-	HTTP/1.1. 200 0K
+	HTTP/1.1. 200 OK
 
 	Hello, World!
 	"""
