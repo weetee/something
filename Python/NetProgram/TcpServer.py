@@ -8,19 +8,22 @@ SOCK_ADDR = (HOST, PORT)
 
 sckt = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 sckt.bind(SOCK_ADDR)
-sckt.listen(1)
+sckt.listen(5)
 
-while True:
-	print("waiting for connection ...")
-	clisckt, cliaddr = sckt.accept()
-	print("connection from: ", cliaddr)
-	# 开始接收数据
+try:
 	while True:
-		data = clisckt.recv(MAX_BUFFSIZE)
-		if not data:
-			break
+		print("waiting for connection ...")
+		clisckt, cliaddr = sckt.accept()
+		print("connection from: ", cliaddr)
+		# 开始接收数据
+		while True:
+			data = clisckt.recv(MAX_BUFFSIZE)
+			if not data:
+				break
 
-		clisckt.send(b'[%s] %s' % (bytes(ctime(), 'utf-8'), data))
+			clisckt.send(b'[%s] %s' % (bytes(ctime(), 'utf-8'), data))
 
-	clisckt.close()
-sckt.close()
+		clisckt.close()
+except (EOFError, KeyboardInterrupt):
+	print("server end~!")
+	sckt.close()

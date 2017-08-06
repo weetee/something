@@ -1,6 +1,6 @@
 import socket
 
-HOST = 'localhost'
+HOST = '192.168.0.155'
 PORT = 8888
 MAX_BUFFSIZE = 1024
 SOCK_ADDR = (HOST, PORT)
