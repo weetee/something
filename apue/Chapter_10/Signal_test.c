@@ -22,6 +22,7 @@ int main()
 
 static void SigUsr(int p_signo)
 {
+	fprintf(stderr, "in SigUsr\n");
 	if (p_signo == SIGUSR1)
 	{
 		fprintf(stderr, "received SIGUSR1\n");
