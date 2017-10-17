@@ -10,8 +10,12 @@ save_file = input(usage_str)
 save_file += ".txt"
 
 def read_file(file_name):
-	with open(file_name) as file_obj:
-		file_lines = file_obj.readlines()
+	try:
+		with open(file_name) as file_obj:
+			file_lines = file_obj.readlines()
+	except FileNotFoundError:
+		msg = "not find file: " + file_name
+		print(msg)
 	return file_lines
 
 def write_file(w_file, data):
