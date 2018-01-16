@@ -16,5 +16,7 @@ int main()
 	int **&rp_i2 = pp_i;
 	std::cout << "rp_i2 = " << **rp_i2 << std::endl;
 
+	//int &*rp_i3 = p_i;	//error
+
 	return 0;
 }
