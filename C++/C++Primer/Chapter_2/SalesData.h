@@ -8,19 +8,26 @@ struct SalesData
 {
 	std::string m_isbn;
 	unsigned int m_soldcnt;
+    double m_price;
 	double m_revenue;
 
+    void Output();
 };
 
-bool Input(SalesData p_item)
+bool Input(SalesData &p_item)
 {
-    double price;
-    if (std::cin >> p_item.m_isbn >> p_item.m_soldcnt >> price)
+    if (std::cin >> p_item.m_isbn >> p_item.m_soldcnt >> p_item.m_price)
     {
-	    p_item.m_revenue = p_item.m_soldcnt * price;
+	    p_item.m_revenue = p_item.m_soldcnt * p_item.m_price;
 	    return true;
     }
     return false;
+}
+
+void SalesData::Output()
+{
+    std::cout << m_isbn << " " << m_soldcnt << " " << m_price << " "
+     << m_revenue << std::endl;
 }
 
 
