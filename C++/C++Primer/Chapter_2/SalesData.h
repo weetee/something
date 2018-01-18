@@ -1,6 +1,7 @@
 #ifndef	SALES_DATA_H
 #define SALES_DATA_H
 
+#include <iostream>
 #include <string>
 
 struct SalesData
@@ -9,8 +10,15 @@ struct SalesData
 	unsigned int m_soldcnt;
 	double m_revenue;
 
-	
 };
+
+bool Input(SalesData p_item)
+{
+    double price;
+    std::cin >> p_item.m_isbn >> p_item.m_soldcnt >> price;
+    p_item.m_revenue = p_item.m_soldcnt * price;
+    return true;
+}
 
 
 #endif //SALES_DATA_H
