@@ -10,11 +10,16 @@ class SalesData
 	friend std::istream &Read(std::istream &p_in, SalesData &p_item);
 	friend std::ostream &Print(std::ostream &p_out, const SalesData &p_item);
 public:
-	SalesData(const std::string &p_booknum = "", int p_sold = 0, double p_price = 0.0) :
+	SalesData() = default;
+	SalesData(const std::string &p_booknum, int p_sold = 0, double p_price = 0.0) :
 		m_book_num(p_booknum), m_total_sold(p_sold)
-		{
-			m_revenue = m_total_sold * p_price;
-		}
+	{
+		m_revenue = m_total_sold * p_price;
+	}
+	SalesData(std::istream &p_in)
+	{
+		Read(p_in, *this);
+	}
 	~SalesData() {}
 
 	std::string Isbn() const
@@ -22,7 +27,7 @@ public:
 		return m_book_num;
 	}
 
-	SalesData &Combine(SalesData &p_rhs);
+	SalesData &Combine(const SalesData &p_rhs);
 
 private:
 	std::string m_book_num;

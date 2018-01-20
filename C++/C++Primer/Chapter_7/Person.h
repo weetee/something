@@ -10,7 +10,10 @@ class Person
 	friend std::ostream &Print(std::ostream &p_out, const Person &p_p);
 
 public:
-	Person() {}
+	Person() = default;
+	Person(const std::string &p_n, const std::string &p_a) :
+		m_name(p_n), m_address(p_a)
+	{ }
 	~Person() {}
 
 	std::string GetName() const
