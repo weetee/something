@@ -9,7 +9,9 @@ SalesData &SalesData::Combine(SalesData &p_rhs)
 
 SalesData Add(const SalesData &p_lhs, const SalesData &p_rhs)
 {
-
+	SalesData sum = p_lhs;
+	sum.Combine(p_rhs);
+	return sum;
 }
 
 std::istream &Read(std::istream &p_in, SalesData &p_item)
