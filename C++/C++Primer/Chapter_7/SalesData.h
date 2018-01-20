@@ -10,7 +10,7 @@ class SalesData
 	friend std::istream &Read(std::istream &p_in, SalesData &p_item);
 	friend std::ostream &Print(std::ostream &p_out, const SalesData &p_item);
 public:
-	SalesData(const std:string &p_booknum = "", int p_sold = 0, double p_price = 0.0) :
+	SalesData(const std::string &p_booknum = "", int p_sold = 0, double p_price = 0.0) :
 		m_book_num(p_booknum), m_total_sold(p_sold)
 		{
 			m_revenue = m_total_sold * p_price;

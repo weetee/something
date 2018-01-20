@@ -16,10 +16,11 @@ int main()
 			}
 			else
 			{
-				Print(cout, total);
+				Print(cout, total) << endl;
 				total = item;
 			}
 		}
+        Print(cout, total) << endl;
 	}
 	else
 	{

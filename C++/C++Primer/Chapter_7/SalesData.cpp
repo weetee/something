@@ -15,14 +15,16 @@ SalesData Add(const SalesData &p_lhs, const SalesData &p_rhs)
 std::istream &Read(std::istream &p_in, SalesData &p_item)
 {
 	double price;
-	p_in >> p_item.m_book_num >> p_item.m_total_sold >> price;
-	p_item.m_revenue = p_item.m_total_sold * price;
+    std::string book_num;
+    int total;
+    p_in >> book_num >> total >> price;
+    p_item = SalesData(book_num, total, price);
 	return p_in;
 }
 
 std::ostream &Print(std::ostream &p_out, const SalesData &p_item)
 {
 	p_out << "book No. = " << p_item.m_book_num << ", total sold = "
-	<< p_item.m_total_sold << ", revenue = " << p_item.m_revenue << endl;
+	<< p_item.m_total_sold << ", revenue = " << p_item.m_revenue;
 	return p_out;
 }
