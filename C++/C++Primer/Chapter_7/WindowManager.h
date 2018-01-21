@@ -6,6 +6,11 @@
 
 class WindowManager
 {
+public:
+	using screen_idx = std::vector<Screen>::size_type;
+	WindowManager() = default;
+
+	void Clear(screen_idx index);
 private:
 	std::vector<Screen> m_screens{Screen(24, 80)};
 };

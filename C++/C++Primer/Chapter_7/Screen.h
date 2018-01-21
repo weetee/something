@@ -4,8 +4,11 @@
 #include <iostream>
 #include <string>
 
+class WindowManager;
+
 class Screen
 {
+	friend void WindowManager::Clear(screen_idx index);
 public:
 	typedef std::string::size_type pos_t;
 	//using pos_t = std::string::size_type;
