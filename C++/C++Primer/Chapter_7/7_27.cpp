@@ -7,6 +7,6 @@ int main()
 	std::cout << "\n";
 	my_screen.Display(std::cout);
 	std::cout << "\n";
-
+	system("pause");
 	return 0;
 }
