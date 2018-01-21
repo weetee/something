@@ -58,4 +58,21 @@ inline char Screen::GetCharacter(pos_t p_row, pos_t p_col) const
 	return m_contents[pos];
 }
 
+class WindowManager
+{
+public:
+	using screen_idx = std::vector<Screen>::size_type;
+	WindowManager() = default;
+
+	inline void Clear(screen_idx index);
+private:
+	std::vector<Screen> m_screens{Screen(24, 80)};
+};
+
+inline void WindowManager::Clear(screen_idx index)
+{
+	Screen &sc = m_screens[index];
+	sc.m_contents = std::string(sc.m_height * sc.m_width, ' ');
+}
+
 #endif //PRIMER_SCREEN_H
