@@ -53,6 +53,8 @@ public:
 		return *this;
 	}
 
+    pos_t GetSize() const;
+
 private:
 	void DoDisplay(std::ostream &os) const
 	{

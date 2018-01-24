@@ -19,3 +19,8 @@ Screen &Screen::SetCharacter(pos_t p_row, pos_t p_col, char c)
 	m_contents[pos] = c;
 	return *this;
 }
+
+Screen::pos_t Screen::GetSize() const
+{
+    return m_height * m_width;
+}
