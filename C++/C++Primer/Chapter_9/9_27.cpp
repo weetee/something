@@ -12,7 +12,7 @@ int main()
 	{
 		if (*curr % 2 != 0)
 		{
-			curr = fwd_int.erase_after(perv);
+			curr = fwd_int.erase_after(prev);
 		}
 		else
 		{
