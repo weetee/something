@@ -69,6 +69,6 @@ int TransformFile(ifstream &trans_file, map<string, string> &rule_map)
 		result_str += " ";
 	}
 
-	cout << "the result is :" << result_str << endl;
+	cout << "the result is: " << result_str << endl;
 	return 0;
 }
