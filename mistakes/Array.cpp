@@ -18,6 +18,15 @@ int main()
     cout << "------------" << endl;
     char c_arr[3][3] = {{'a','b','c'},{'d','e','f'}, {'g','h','i'}};
     cout << c_arr[1][4] << endl;    //h
+    
+    cout << "------------" << endl;
+    int (*p_arr)[2] = arr;
+    cout << *(*(p_arr+1)+1) << endl; //3
+
+    cout << "------------" << endl;
+    char str[][10] = {"China", "Beijing"};
+    char *p_str = str[0];
+    cout << p_str + 10 << endl;   //Beijing
 
     return 0;
 }
