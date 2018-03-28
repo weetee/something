@@ -1,6 +1,7 @@
 bin
 pkg
 build
+obj
 *.exe
 *.dll
 *.test
@@ -9,3 +10,4 @@ build
 *.DS_Store
 *.sublime-workspace
 *.txt
+*.o

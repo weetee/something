@@ -1,5 +1,5 @@
 #include <fcntl.h>
-#include "../TlpiHead.h"
+#include "../Lib/TlpiHead.h"
 
 int main(int argc, char *argv[])
 {

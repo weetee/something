@@ -1,4 +1,4 @@
-#include "../TlpiHead.h"
+#include "../Lib/TlpiHead.h"
 
 #ifndef BUF_SIZE
 #define BUF_SIZE 10

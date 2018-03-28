@@ -1,6 +1,6 @@
 #include <sys/stat.h>
 #include <fcntl.h>
-#include "../TlpiHead.h"
+#include "../Lib/TlpiHead.h"
 
 #ifndef BUF_SIZE
 #define BUF_SIZE 1024
