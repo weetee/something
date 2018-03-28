@@ -6,7 +6,7 @@ DIR_OBJ = ./obj
 CC = gcc
 CFLAGS = -g -Wall -I$(DIR_LIB)
 
-BIN = Copy Read Lseek Tee
+BIN = Copy Read Lseek Tee Fcntl
 TARGET = $(foreach v, $(BIN), $(DIR_BIN)/$(v))
 
 LIB = $(wildcard $(DIR_LIB)/*.c)
