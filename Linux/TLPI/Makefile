@@ -1,18 +1,17 @@
-.PHONY: clean
 CC = gcc
 CFLAGS = -g -Wall -std=c99
+VPATH = FileIO
 
-BUILD_DIR = ./build
-all: $(BUILD_DIR)/Copy $(BUILD_DIR)/Read $(BUILD_DIR)/Lseek
+dir = ./build
+bin = $(dir)/Copy $(dir)/Read $(dir)/Lseek
 
-$(BUILD_DIR)/Copy:
-	$(CC) $(CFLAGS) ./FileIO/Copy.c GetNum.c ErrorFunctions.c -o $(BUILD_DIR)/Copy
+all : $(bin)
 
-$(BUILD_DIR)/Read:
-	$(CC) $(CFLAGS) ./FileIO/Read.c GetNum.c ErrorFunctions.c -o $(BUILD_DIR)/Read
+$(bin) : $(objs)
+	$(CC) $(CFLAGS) $< -o $@
 
-$(BUILD_DIR)/Lseek:
-	$(CC) $(CFLAGS) ./FileIO/Lseek.c GetNum.c ErrorFunctions.c -o $(BUILD_DIR)/Lseek
+base = ErrorFunctions.o GetNum.o
+$(base) : TlpiHead.h
 
 clean:
-	rm -f *.o $(BUILD_DIR)/Read $(BUILD_DIR)/Copy $(BUILD_DIR)/Lseek
+	rm -f *.o 
