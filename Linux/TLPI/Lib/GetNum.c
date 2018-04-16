@@ -39,7 +39,7 @@ static long GetNum(const char *fun_name, const char *arg, int flags, const char 
 	if ((flags & GN_NONNEG) && ret < 0)
 		GnFail(fun_name, "negative value not allowed", arg, name);
 
-	if ((flags & GN_GT_0) && ret < 0)
+	if ((flags & GN_GT_0) && ret <= 0)
 		GnFail(fun_name, "value must be > 0", arg, name);
 
 	return ret;
