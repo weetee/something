@@ -4,6 +4,7 @@ DIR_OBJ = ./obj
 
 DIR_FILE = ./FileIO
 DIR_PROC = ./Process
+DIR_PIPE = ./Pipes
 
 CC = gcc
 CFLAGS = -g -Wall -I$(DIR_LIB) -std=c99
@@ -38,6 +39,17 @@ $$(DIR_BIN)/$(1) : $$(DIR_PROC)/$(1).c
 endef
 
 $(foreach v, $(BIN), $(eval $(call GEN_TARGET2,$(v))))
+
+BIN = PipeSync
+TARGET = $(foreach v, $(BIN), $(DIR_BIN)/$(v))
+all : $(TARGET)
+
+define GEN_TARGET3
+$$(DIR_BIN)/$(1) : $$(DIR_PIPE)/$(1).c
+	$$(CC) $$(CFLAGS) $$(LIB_OBJ) $$< -o $$@
+endef
+
+$(foreach v, $(BIN), $(eval $(call GEN_TARGET3,$(v))))
 
 .PHONY : clean
 clean :
