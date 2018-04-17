@@ -1,8 +1,4 @@
-#ifndef UTIL_H
-#define UTIL_H
-#include <stdio.h>
-#include <stdarg.h>
-#include <stdlib.h>
+#include "Util.h"
 
 static void Terminate()
 {
@@ -19,7 +15,7 @@ static void OutputMsg(const char *format, va_list lst)
 	fflush(stderr);
 }
 
-static void ExitError(const char *format, ...)
+void ExitError(const char *format, ...)
 {
 	va_list arg_lst;
 	va_start(arg_lst, format);
@@ -28,5 +24,3 @@ static void ExitError(const char *format, ...)
 
 	Terminate();
 }
-
-#endif //UTIL_H

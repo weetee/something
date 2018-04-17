@@ -1,21 +1,32 @@
+DIR_LIB = ./Utils
+DIR_BIN = ./build
+DIR_OBJ = ./obj
+
+DIR_FILE = .
+
 CC = gcc
 CFLAGS = -g -Wall
 
-DIR_BIN = ./build
-
 BIN = HelloServer HelloClient
-OBJS = $(BIN:=.o)
-.SUFFIXES: .c .o
-$(OBJS) : Util.h
-.c.o:
-	$(CC) $(CFLAGS) -c $< -o $(DIR_BIN)/$@
+TARGET = $(foreach v, $(BIN), $(DIR_BIN)/$(v))
 
-all : $(BIN)
+LIB = $(wildcard $(DIR_LIB)/*.c)
+LIB_OBJ = $(patsubst %.c,$(DIR_OBJ)/%.o,$(notdir $(LIB)))
 
-HelloServer.o: HelloServer.c
-HelloClient.o: HelloClient.c
+all : $(LIB_OBJ)
+
+$(DIR_OBJ)/%.o : $(DIR_LIB)/%.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+all : $(TARGET)
+
+define GEN_TARGET
+$$(DIR_BIN)/$(1) : $$(DIR_FILE)/$(1).c
+	$$(CC) $$(CFLAGS) $$(LIB_OBJ) $$< -o $$@
+endef
+
+$(foreach v, $(BIN), $(eval $(call GEN_TARGET,$(v))))
 
 .PHONY : clean
 clean :
-	rm -rf $(DIR_BIN)/* *.o
-
+	rm -f $(DIR_BIN)/* $(DIR_OBJ)/*.o
