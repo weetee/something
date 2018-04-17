@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/socket.h>
-#include <arpa/inte.h>
+#include <arpa/inet.h>
 #include "Util.h"
 
 int main(int argc, char *argv[])
@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 
 	struct sockaddr_in clnt_addr;
 	socklen_t clnt_addr_len;
-	int clnt_sockfd = accpet(serv_addr, (struct sockaddr *)&clnt_addr, &clnt_addr_len);
+	int clnt_sockfd = accept(serv_sockfd, (struct sockaddr *)&clnt_addr, &clnt_addr_len);
 	if (clnt_sockfd == -1)
 		ExitError("accept error");
 

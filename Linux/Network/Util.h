@@ -2,6 +2,7 @@
 #define UTIL_H
 #include <stdio.h>
 #include <stdarg.h>
+#include <stdlib.h>
 
 static void Terminate()
 {
