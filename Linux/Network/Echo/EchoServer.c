@@ -6,6 +6,8 @@
 #include <arpa/inet.h>
 #include "../Utils/Util.h"
 
+#define BUFF_SIZE	1024
+
 int main(int argc, char *argv[])
 {
 	if (argc != 2)
@@ -31,6 +33,28 @@ int main(int argc, char *argv[])
 
 	struct sockaddr_in clnt_addr;
 	socklen_t clnt_addr_len = sizeof(clnt_addr);
+	int con_sockfd;
+	char buf[BUFF_SIZE];
+	ssize_t str_len;
+	while (true)
+	{
+		con_sockfd = accept(serv_sockfd, (struct sockaddr *)&clnt_addr, &clnt_addr_len);
+		if (con_sockfd == -1)
+			ExitError("accept error");
+		printf("Connected client fd[%d]", con_sockfd);
+		
+		while ((str_len = read(con_sockfd, buf, BUFF_SIZE)) != 0)
+		{
+			if (str_len == -1)
+				ExitError("read error");
+			write(con_sockfd, buf, str_len);
+		}
+		close(con_sockfd);
+	}
 
+	ret = close(serv_sockfd);
+	if (ret == -1)
+		ExitError("close error");
+	printf("server exit\n");
 	exit(EXIT_SUCCESS);
 }
