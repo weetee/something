@@ -36,12 +36,12 @@ int main(int argc, char *argv[])
 	int con_sockfd;
 	char buf[BUFF_SIZE];
 	ssize_t str_len;
-	while (true)
+	while (1)
 	{
 		con_sockfd = accept(serv_sockfd, (struct sockaddr *)&clnt_addr, &clnt_addr_len);
 		if (con_sockfd == -1)
 			ExitError("accept error");
-		printf("Connected client fd[%d]", con_sockfd);
+		printf("Connected client fd[%d] \n", con_sockfd);
 		
 		while ((str_len = read(con_sockfd, buf, BUFF_SIZE)) != 0)
 		{
