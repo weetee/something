@@ -28,7 +28,7 @@ endef
 
 $(foreach v, $(BIN), $(eval $(call GEN_TARGET,$(v))))
 
-BIN = EchoServer EchoClient
+BIN = EchoServer EchoClient EchoEpollServer
 TARGET = $(foreach v, $(BIN), $(DIR_BIN)/$(v))
 all : $(TARGET)
 
